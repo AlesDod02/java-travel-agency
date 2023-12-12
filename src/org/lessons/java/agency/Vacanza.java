@@ -1,6 +1,7 @@
 package org.lessons.java.agency;
 
 import java.time.LocalDate;
+import java.util.List;
 
 
 import static java.time.temporal.ChronoUnit.DAYS;
@@ -14,6 +15,8 @@ public class Vacanza {
     private LocalDate endDate;
 
     private LocalDate currentDate= LocalDate.now();
+
+    private List<Escursione>escursioni;
 
 
     public Vacanza(String destination, LocalDate startDate, LocalDate endDate) throws IllegalArgumentException{
@@ -58,6 +61,14 @@ public class Vacanza {
 
     public String getStringDayDuration(){
         return String.valueOf(getDaysDuration());
+    }
+
+    public List<Escursione> getEscursioni() {
+        return escursioni;
+    }
+
+    public void setEscursioni(List<Escursione> escursioni) {
+        this.escursioni = escursioni;
     }
 
     public void getPrenotation() {
