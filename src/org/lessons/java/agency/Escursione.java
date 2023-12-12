@@ -6,12 +6,12 @@ public class Escursione {
     private String city;
     private int time;
 
-    private BigDecimal price;
+    private BigDecimal priceXHour;
 
-    public Escursione(String city, int time, BigDecimal price) {
+    public Escursione(String city, int time, BigDecimal priceXHour) {
         this.city = city;
         this.time = time;
-        this.price = price;
+        this.priceXHour = priceXHour;
     }
 
     public String getCity() {
@@ -30,13 +30,19 @@ public class Escursione {
         this.time = time;
     }
 
-    public BigDecimal getPrice() {
-        return price;
+    public BigDecimal getPriceXHour() {
+        return priceXHour;
     }
 
-    public void setPrice(BigDecimal price) {
-        this.price = price;
+    public void setPriceXHour(BigDecimal priceXHour) {
+        this.priceXHour = priceXHour;
     }
 
 
+    public BigDecimal getPriceEscursione() {
+        BigDecimal newTime = BigDecimal.valueOf(time);
+
+        BigDecimal totalPrice1 = priceXHour.multiply(newTime);
+        return totalPrice1;
+    }
 }

@@ -10,6 +10,7 @@ public class Agenzia {
         Scanner scanner = new Scanner(System.in);
 
         List<Vacanza> elencoVacanze = new ArrayList<>();
+        List<Escursione> elencoEscursioni = new ArrayList<>();
 
 
         boolean stop = false;
@@ -36,6 +37,12 @@ public class Agenzia {
                         System.out.println("Inserisci la data del ritorno (yyyy-mm-dd");
                         String endDate = scanner.nextLine();
                         LocalDate endRitorno = LocalDate.parse((endDate));
+                        System.out.println("vuoi aggiungere un'escursione ?y/n");
+                        String answerEscursione= scanner.nextLine();
+                        boolean addEscursione;
+                        if (answerEscursione.equals("y")){
+                            System.out.println("");
+                        }
                         try {
                             Vacanza nuovaVacanza = new Vacanza(destination, startPartenza, endRitorno);
                             nuovaVacanza.getPrenotation();

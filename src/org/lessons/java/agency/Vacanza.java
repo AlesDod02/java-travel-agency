@@ -1,7 +1,9 @@
 package org.lessons.java.agency;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
+import java.math.RoundingMode;
 
 
 import static java.time.temporal.ChronoUnit.DAYS;
@@ -74,5 +76,12 @@ public class Vacanza {
     public void getPrenotation() {
         System.out.println("perfetto hai prenotato una vacanza per :" + destination + ", " + "di: " + getDaysDuration() + " giorni");
     }
+    public BigDecimal totalEscursionPrice(){
+        BigDecimal totalPrice = BigDecimal.ZERO;
+        for (Escursione element:escursioni){
+            totalPrice = totalPrice.add(element.getPriceEscursione()).setScale(2, RoundingMode.HALF_DOWN);
+        }
+        return totalPrice;
+    }
+    }
 
-}
