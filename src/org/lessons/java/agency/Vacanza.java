@@ -21,7 +21,7 @@ public class Vacanza {
     private List<Escursione>escursioni;
 
 
-    public Vacanza(String destination, LocalDate startDate, LocalDate endDate) throws IllegalArgumentException{
+    public Vacanza(String destination, LocalDate startDate, LocalDate endDate, List<Escursione>escursioni) throws IllegalArgumentException{
         if (destination.equals(null)){throw new IllegalArgumentException("devi inserire una destinazione valida");
         }
         if (startDate == null || startDate.isBefore(currentDate)){throw new IllegalArgumentException("devi inserire una data valida");}
@@ -29,6 +29,7 @@ public class Vacanza {
         this.destination = destination;
         this.startDate = startDate;
         this.endDate = endDate;
+        this.escursioni=escursioni;
     }
 
 
@@ -73,15 +74,25 @@ public class Vacanza {
         this.escursioni = escursioni;
     }
 
-    public void getPrenotation() {
-        System.out.println("perfetto hai prenotato una vacanza per :" + destination + ", " + "di: " + getDaysDuration() + " giorni");
+    @Override
+    public String toString() {
+        return "Perfetto hai prenotato una vacanza per :"+ destination+" di: "+ getDaysDuration()+ " giorni";
     }
+    public void  stampEscursioni(){
+        for (Escursione element: escursioni){
+            element.getSingleEscursione();
+        }
+    }
+
     public BigDecimal totalEscursionPrice(){
         BigDecimal totalPrice = BigDecimal.ZERO;
         for (Escursione element:escursioni){
             totalPrice = totalPrice.add(element.getPriceEscursione()).setScale(2, RoundingMode.HALF_DOWN);
         }
         return totalPrice;
+    }
+    public void  totalPriceString(){
+        System.out.println("il costo totale delle tue escursioni è :"+ totalEscursionPrice());
     }
     }
 

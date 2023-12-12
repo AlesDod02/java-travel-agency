@@ -1,12 +1,13 @@
 package org.lessons.java.agency;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class ViaggioNozze extends Vacanza{
     private boolean trattamenti;
 
-    public ViaggioNozze(String destination, LocalDate startDate, LocalDate endDate,boolean trattamenti) throws IllegalArgumentException {
-        super(destination, startDate, endDate);
+    public ViaggioNozze(String destination, LocalDate startDate, LocalDate endDate, List<Escursione>escursioni,boolean trattamenti) throws IllegalArgumentException {
+        super(destination, startDate, endDate,escursioni);
         this.trattamenti=trattamenti;
     }
 
@@ -27,8 +28,8 @@ public class ViaggioNozze extends Vacanza{
         }
     }
 
-    @Override
+
     public void getPrenotation() {
-        System.out.println("hai prenotato un viaggio di nozze");getSpecials();super.getPrenotation();
+        System.out.println("hai prenotato un viaggio di nozze");getSpecials();
     }
 }

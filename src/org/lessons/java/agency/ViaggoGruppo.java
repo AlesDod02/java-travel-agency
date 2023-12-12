@@ -1,6 +1,7 @@
 package org.lessons.java.agency;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class ViaggoGruppo extends Vacanza{
 
@@ -8,8 +9,8 @@ public class ViaggoGruppo extends Vacanza{
     private int rangeStart;
     private int rangeEnd;
 
-    public ViaggoGruppo(String destinazione, LocalDate dataInizio, LocalDate dataFine, int numeroPartecipanti, int rangeStart, int rangeEnd) throws IllegalArgumentException {
-        super(destinazione,dataInizio,dataFine);
+    public ViaggoGruppo(String destinazione, LocalDate dataInizio, LocalDate dataFine, List<Escursione> escursioni, int numeroPartecipanti, int rangeStart, int rangeEnd) throws IllegalArgumentException {
+        super(destinazione,dataInizio,dataFine,escursioni);
         if (numeroPartecipanti <= 0){
             System.out.println("non hai aggiunto un numero di partecipanti valido");
 
@@ -59,9 +60,9 @@ public class ViaggoGruppo extends Vacanza{
         this.rangeEnd = rangeEnd;
     }
 
-    @Override
+
     public void getPrenotation() {
-        System.out.println("hai scelto il viaggio di gruppo per: "+ getNumeroPartecipanti()+ " con fascia di età compresa tra"+ getRangeStart()+ " anni-"+ getRangeEnd() + " anni" );super.getPrenotation();;
+        System.out.println("hai scelto il viaggio di gruppo per: "+ getNumeroPartecipanti()+ " con fascia di età compresa tra"+ getRangeStart()+ " anni-"+ getRangeEnd() + " anni" );;
 
     }
 }

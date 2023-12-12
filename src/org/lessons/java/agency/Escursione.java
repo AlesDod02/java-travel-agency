@@ -45,4 +45,14 @@ public class Escursione {
         BigDecimal totalPrice1 = priceXHour.multiply(newTime);
         return totalPrice1;
     }
+
+    @Override
+    public String toString() {
+        return "perfetto hai prenotato anche una escursione per questa città: "+city+" al costo di: "+ getPriceEscursione()+"€, per un totale di :"+ getTime()+" ore";
+    }
+    public void getSingleEscursione(){
+        System.out.println("escursione: "+city+ " prezzo: "+ getPriceEscursione());
+    }
+
+
 }
