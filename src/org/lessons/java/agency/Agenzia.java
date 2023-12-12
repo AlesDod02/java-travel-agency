@@ -43,6 +43,7 @@ public class Agenzia {
                         } catch (IllegalArgumentException e) {
                             System.out.println("invalid data :" + e.getMessage());
                         }
+                        break;
 
                     case 2:
 
@@ -72,6 +73,7 @@ public class Agenzia {
                         } catch (IllegalArgumentException e) {
                             System.out.println("invalid data :" + e.getMessage());
                         }
+                        break;
                     case 3:
                         System.out.println("Inserisci la destinazione");
                         String destinationGruppo = scanner.nextLine();
@@ -97,14 +99,19 @@ public class Agenzia {
                         } catch (IllegalArgumentException e) {
                             System.out.println("invalid data :" + e.getMessage());
                         }
+                        break;
+                    default:
+                        System.out.println("Scelta non valida. Riprova.");
+                        break;
 
 
                 }
             }
 
 
-        }System.out.println("Elenco delle vacanze prenotate:");
-        for(Vacanza vacanza:elencoVacanze){
+        }
+        System.out.println("Elenco delle vacanze prenotate:");
+        for (Vacanza vacanza : elencoVacanze) {
             vacanza.getPrenotation();
         }
 
